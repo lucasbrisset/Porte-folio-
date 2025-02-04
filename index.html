@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Mode - Lucas Brissett</title>
+    <title>Portfolio Mode - Lucas Brisset</title>
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
-        /* Couleurs */
+        /* Nouveaux codes couleur */
         :root {
-            --primary-color: #967459; /* Mocha Mousse - PANTONE 18-1012 */
-            --secondary-color: #333333; /* Noir */
-            --background-color: #F9F9F9; /* Fond clair */
-            --text-color: #555555; /* Texte principal */
+            --primary-color: #F0EEE5;   /* Perfectly Pale - PANTONE 11-0601 TCX */
+            --secondary-color: #363945; /* Inkwell - PANTONE 19-4016 TCX */
+            --accent-color: #7D8B9F;    /* Gris bleuté moderne */
+            --text-color: #444444;
+            --background-color: #FFFFFF;
         }
 
         /* Reset */
@@ -23,7 +24,7 @@
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
@@ -36,28 +37,34 @@
             padding: 20px;
         }
 
-        /* Header */
+        /* Header modernisé */
         header {
-            background-color: var(--primary-color);
-            color: white;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #ffffff 100%);
+            color: var(--secondary-color);
             text-align: center;
-            padding: 60px 0;
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 10px;
+            letter-spacing: -1px;
         }
 
         header p {
-            font-size: 1.2rem;
-            font-weight: 300;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--accent-color);
         }
 
-        /* Navigation */
+        /* Navigation épurée */
         nav {
             background-color: var(--secondary-color);
-            padding: 10px 0;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav ul {
@@ -66,128 +73,145 @@
         }
 
         nav ul li {
-            display: inline;
-            margin: 0 15px;
+            display: inline-block;
+            margin: 0 20px;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            transition: opacity 0.3s;
         }
 
         nav ul li a:hover {
-            text-decoration: underline;
+            opacity: 0.8;
         }
 
-        /* Sections */
+        /* Sections aérées */
         section {
-            padding: 40px 0;
+            padding: 60px 0;
         }
 
         h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
             color: var(--secondary-color);
+            text-align: center;
         }
 
-        p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-        }
-
-        /* Swiper Carousel */
+        /* Carrousel corrigé */
         .swiper-container {
             width: 100%;
-            height: 400px;
-            margin-bottom: 40px;
+            height: 500px;
+            margin: 40px 0;
         }
 
         .swiper-slide {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: var(--background-color);
-            border-radius: 10px;
+            background: var(--primary-color);
+            border-radius: 12px;
             overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .swiper-slide:hover {
+            transform: scale(0.98);
         }
 
         .swiper-slide img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .swiper-button-next, .swiper-button-prev {
-            color: var(--primary-color);
         }
 
         .swiper-pagination-bullet {
-            background-color: var(--primary-color);
+            background-color: var(--accent-color) !important;
+            opacity: 0.5 !important;
         }
 
-        /* Contact Form */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        .swiper-pagination-bullet-active {
+            opacity: 1 !important;
         }
 
-        label {
-            font-weight: bold;
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--secondary-color) !important;
+            background: rgba(255,255,255,0.8);
+            padding: 20px;
+            border-radius: 50%;
         }
 
-        input, textarea, button {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #7a5c47; /* Légère variation de Mocha Mousse */
-        }
-
-        /* CV Section */
+        /* Section CV modernisée */
         .cv-section {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .cv-section a {
-            background-color: var(--primary-color);
+            background-color: var(--secondary-color);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 25px;
+            font-weight: 500;
+            display: inline-block;
+            transition: transform 0.3s;
         }
 
         .cv-section a:hover {
-            background-color: #7a5c47;
+            transform: translateY(-3px);
         }
 
-        /* Footer */
+        /* Formulaire plus élégant */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Footer minimaliste */
         footer {
             background-color: var(--secondary-color);
             color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+            padding: 30px 0;
+            margin-top: 60px;
         }
     </style>
+    <!-- Police Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Lucas Brissett</h1>
-            <p>Styliste & Créateur de Mode</p>
+            <h1>Lucas Brisset</h1>
+            <p>Étudiant en Design de Mode</p>
         </div>
     </header>
 
@@ -195,35 +219,33 @@
         <ul>
             <li><a href="#about">À Propos</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#cv">Mon CV</a></li>
+            <li><a href="#cv">CV</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section id="about" class="container">
-        <h2>À Propos de Moi</h2>
-        <p>Passionné par la mode et les tendances, je crée des pièces uniques qui reflètent mon univers. Inspiré par les couleurs et les textures, mon travail est un mélange de modernité et d'élégance.</p>
+        <h2>Mon Parcours</h2>
+        <p>Étudiant passionné par l'univers de la mode, je explore actuellement les différentes facettes du design vestimentaire. Mes créations mêlent recherche textile, sensibilité artistique et approche contemporaine.</p>
     </section>
 
     <section id="portfolio" class="container">
-        <h2>Portfolio</h2>
-        <!-- Swiper Carousel -->
+        <h2>Mes Projets</h2>
         <div class="swiper-container">
             <div class="swiper-wrapper">
+                <!-- Remplace ces liens par tes propres images -->
                 <div class="swiper-slide">
-                    <img src="image1.jpg" alt="Pièce 1">
+                    <img src="https://via.placeholder.com/800x500/EEE?text=Projet+Bac+2024" alt="Projet de Bac">
                 </div>
                 <div class="swiper-slide">
-                    <img src="image2.jpg" alt="Pièce 2">
+                    <img src="https://via.placeholder.com/800x500/EEE?text=Pièce+Expérimentale+1" alt="Pièce 1">
                 </div>
                 <div class="swiper-slide">
-                    <img src="image3.jpg" alt="Projet de Bac">
+                    <img src="https://via.placeholder.com/800x500/EEE?text=Collection+Étudiante" alt="Collection">
                 </div>
             </div>
-            <!-- Navigation buttons -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
-            <!-- Pagination -->
             <div class="swiper-pagination"></div>
         </div>
     </section>
@@ -236,29 +258,39 @@
     </section>
 
     <section id="contact" class="container">
-        <h2>Contact</h2>
-        <p>Pour toute collaboration ou demande, n'hésitez pas à me contacter :</p>
-        <form action="https://formspree.io/f/{ton_id_formspree}" method="POST">
-            <label for="name">Nom :</label>
+        <h2>Échangeons</h2>
+        <form action="https://formspree.io/f/{TON_ID_FORMSPREE}" method="POST">
+            <label for="name">Nom</label>
             <input type="text" id="name" name="name" required>
-            <label for="email">Email :</label>
+            <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
-            <label for="message">Message :</label>
+            <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" required></textarea>
             <button type="submit">Envoyer</button>
         </form>
     </section>
 
     <footer>
-        <p>&copy; 2025 Lucas Brissett. Tous droits réservés.</p>
+        <p>&copy; 2024 Lucas Brisset - Tous droits réservés</p>
     </footer>
 
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        // Initialize Swiper
+        // Initialisation du carrousel
         const swiper = new Swiper('.swiper-container', {
-            loop: true, // Boucle infinie
+            loop: true,
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 20,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
