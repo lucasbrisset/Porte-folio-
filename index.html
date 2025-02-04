@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Mode - Lucas Brisset</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        /* Nouveaux codes couleur */
+        :root {
+            --primary-color: #F0EEE5;   /* Perfectly Pale - PANTONE 11-0601 TCX */
+            --secondary-color: #363945; /* Inkwell - PANTONE 19-4016 TCX */
+            --accent-color: #7D8B9F;    /* Gris bleuté moderne */
+            --text-color: #444444;
+            --background-color: #FFFFFF;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header modernisé */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #ffffff 100%);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--accent-color);
+        }
+
+        /* Navigation épurée */
+        nav {
+            background-color: var(--secondary-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+
+        /* Sections aérées */
+        section {
+            padding: 60px 0;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        /* Carrousel corrigé */
+        .swiper-container {
+            width: 100%;
+            height: 500px;
+            margin: 40px 0;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--primary-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .swiper-slide:hover {
+            transform: scale(0.98);
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: var(--accent-color) !important;
+            opacity: 0.5 !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1 !important;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--secondary-color) !important;
+            background: rgba(255,255,255,0.8);
+            padding: 20px;
+            border-radius: 50%;
+        }
+
+        /* Section CV modernisée */
+        .cv-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .cv-section a {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .cv-section a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Formulaire plus élégant */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Footer minimaliste */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+    </style>
+    <!-- Police Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Lucas Brisset</h1>
+            <p>Étudiant en Design de Mode</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">À Propos</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#cv">CV</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="container">
+        <h2>Mon Parcours</h2>
+        <p>Étudiant passionné par l'univers de la mode, je explore actuellement les différentes facettes du design vestimentaire. Mes créations mêlent recherche textile, sensibilité artistique et approche contemporaine.</p>
+    </section>
+
+    <section id="portfolio" class="container">
+        <h2>Mes Projets</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Remplace ces liens par tes propres images -->
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/800x500/EEE?text=Projet+Bac+2024" alt="Projet de Bac">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/800x500/EEE?text=Pièce+Expérimentale+1" alt="Pièce 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://via.placeholder.com/800x500/EEE?text=Collection+Étudiante" alt="Collection">
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section id="cv" class="container">
+        <h2>Mon CV</h2>
+        <div class="cv-section">
+            <a href="cv.pdf" download>Télécharger mon CV</a>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Échangeons</h2>
+        <form action="https://formspree.io/f/{TON_ID_FORMSPREE}" method="POST">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Lucas Brisset - Tous droits réservés</p>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        // Initialisation du carrousel
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 20,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+</html>
